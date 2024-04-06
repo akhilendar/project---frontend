@@ -10,13 +10,16 @@ const FormAdd: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:3000/api/todos", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name: todo }),
-      });
+      const response = await fetch(
+        "https://project-backend-p1xd.onrender.com/api/todos",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name: todo }),
+        }
+      );
       if (!response.ok) {
         throw new Error("Failed to create todo");
       }

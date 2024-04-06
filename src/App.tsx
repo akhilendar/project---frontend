@@ -32,7 +32,7 @@ const App: React.FC = () => {
     if (deleteTodoId !== null) {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/todos/${deleteTodoId}`,
+          `https://project-backend-p1xd.onrender.com/api/todos/${deleteTodoId}`,
           {
             method: "DELETE",
           }
@@ -56,7 +56,9 @@ const App: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/todos");
+        const response = await fetch(
+          "https://project-backend-p1xd.onrender.com/api/todos"
+        );
         if (!response.ok) {
           throw new Error("Failed to fetch todos");
         }

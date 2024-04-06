@@ -32,9 +32,12 @@ const TodoItem: React.FC<TodoItemProps> = ({
   const handleDelete = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`http://localhost:3000/api/todos/${id}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `https://project-backend-p1xd.onrender.com/api/todos/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
       if (!response.ok) {
         throw new Error("Failed to delete todo");
       }
