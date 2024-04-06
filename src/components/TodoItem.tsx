@@ -32,18 +32,18 @@ const TodoItem: React.FC<TodoItemProps> = ({
   const handleDelete = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`https://terranxt-backend.onrender.com/api/todos/${id}`, {
-        method: 'DELETE',
+      const response = await fetch(`http://localhost:3000/api/todos/${id}`, {
+        method: "DELETE",
       });
       if (!response.ok) {
-        throw new Error('Failed to delete todo');
+        throw new Error("Failed to delete todo");
       }
       dispatch(removeTodo({ id }));
     } catch (error) {
       if (error instanceof Error) {
-        console.error('Error deleting todo:', error.message);
+        console.error("Error deleting todo:", error.message);
       } else {
-        console.error('Unknown error:', error);
+        console.error("Unknown error:", error);
       }
     } finally {
       setLoading(false);
@@ -61,7 +61,8 @@ const TodoItem: React.FC<TodoItemProps> = ({
       <td>
         <Badge bg={isDone ? "success" : "danger"}>
           {isDone ? "Done" : "Pending"}
-        </Badge><br/>
+        </Badge>
+        <br />
         {isDone && <Badge>{updatedAt}</Badge>}
       </td>
       <td>
